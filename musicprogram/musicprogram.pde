@@ -14,14 +14,15 @@ void setup()
 {
   //size(500, 600); //Remind you of Display Geometry
   minim = new Minim(this); //load from data directroy, loadFile() should also load from project folder, like loadImage()
-  song1 = minim.loadFile("MusicDownload/groove.mp3"); //able to pass absolute paths, file name & extesnion, and URL
-  
+  song1 = minim.loadFile("musicdownload/freemp3.plus-ALESTORM - P.A.R.T.Y. (Official Video) _ Napalm Records-320.mp3"); //able to pass absolute paths, file name & extesnion, and URL
 }//End setup
 //
 void draw()
 {
   if ( song1.isLooping() ) println("There are", song1.loopCount(), "loops left.");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
+  //
+  println("Song Position", song1.position(), "Song Length", song1.length());
 }//End draw
 //
 void keyPressed()
@@ -34,13 +35,42 @@ void keyPressed()
   if ( keystr!=null) loopNum = int(keystr); //Local Variable plays once and loops loopNum of times
   if ( loopNum >= 0 && loopNum <= 3 ) song1.loop(loopNum); //Parameter is number of loops
   if ( loopNum > 3 ) println("I donot loop that much, press infinite loop.");
-  // if ( key=='l' || key=='L' ) song1.loop(loopNum); //Parameter is number of loops
+  //if ( key=='l' || key=='L' ) song1.loop(loopNum); //Parameter is number of loops
   //
+  //playpause
+  if (key=='p' || key=='P') song1.play();   {
+    if (song1.isPlaying()) {
+      song1.pause();     
+  } else {
+    song1.play();
+  }
+ }//end playpause
+  //mute
+  if (key == 'm' || key == 'M') {
+    if (song1.isMuted()) {
+      song1.unmute();
+    } else {
+      song1.mute();
+    }
+  }  //end mute
+  /*
+  //stop
+  if (song1.isPlaying()) {
+    song1.pause();
+  } else {
+  }//end stop
+  //
+  */
   //First Play Button
   //song1.play(); //Parameter is milli-seconds from start of audio file to start playing
   //
 }//End keyPressed
 //
-void mousePressed() {}//End mousePressed
+void mousePressed() {
+}//End mousePressed
 //
 //End MAIN
+
+
+
+//"musicdownload/freemp3.plus-ALESTORM - P.A.R.T.Y. (Official Video) _ Napalm Records-320.mp3"
