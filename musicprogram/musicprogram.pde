@@ -38,13 +38,14 @@ void keyPressed()
   //if ( key=='l' || key=='L' ) song1.loop(loopNum); //Parameter is number of loops
   //
   //playpause
-  if (key=='p' || key=='P') song1.play();   {
+  if (key=='p' || key=='P') song1.play();   
+  {
     if (song1.isPlaying()) {
-      song1.pause();     
-  } else {
-    song1.play();
-  }
- }//end playpause
+      song1.pause();
+    } else {
+      song1.play();
+    }
+  }//end playpause
   //mute
   if (key == 'm' || key == 'M') {
     if (song1.isMuted()) {
@@ -52,15 +53,16 @@ void keyPressed()
     } else {
       song1.mute();
     }
-  }  //end mute
-  /*
+  }  //end mute  
   //stop
-  if (song1.isPlaying()) {
+  if (key == 's' || key == 'S') {
+  //end stop
+  if (song1.isPlaying()) 
     song1.pause();
+    song1.rewind();
   } else {
-  }//end stop
-  //
-  */
+    song1.rewind();
+  }
   //First Play Button
   //song1.play(); //Parameter is milli-seconds from start of audio file to start playing
   //
